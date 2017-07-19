@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import TimerDashboard from './TimerDashboard';
 
 class Root extends Component {
     render() {
         return (
             <div>
-                hi
+                <TimerDashboard />
             </div>
         )
     }
