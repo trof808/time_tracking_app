@@ -5,9 +5,11 @@ import ToggleableTimerForm from './ToggleableTimerForm';
 class TimerDashboard extends Component {
     render() {
         return (
-            <div>
-                <EditableTimerList />
-                <ToggleableTimerForm />
+            <div className="ui three column centered grid">
+                <div className="column">
+                    <EditableTimerList />
+                    <ToggleableTimerForm isOpen={false} />
+                </div>
             </div>
         )
     }

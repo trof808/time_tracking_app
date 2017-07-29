@@ -4,12 +4,22 @@ import TimerForm from '../components/TimerForm';
 
 class EditableTimer extends Component {
     render() {
-        return (
-            <div>
-                <Timer />
-                <TimerForm />
-            </div>
-        )
+        if(this.props.editFromOpen) {
+            return (
+                <TimerForm
+                    title={this.props.title}
+                    project={this.props.project} />
+            )
+        } else {
+            return (
+                <Timer 
+                    title={this.props.title}
+                    project={this.props.project} 
+                    elapsed={this.props.elapsed}
+                    runningSince={this.props.runningSince} />
+            )
+        }
+        
     }
 }
 
