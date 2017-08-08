@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import hlpers from '../other/helpers'
+import hlpers from '../other/helpers';
 
 class Timer extends Component {
     render() {

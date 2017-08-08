@@ -7,7 +7,17 @@ class TimerForm extends Component {
         project: this.props.project || ''
     }
     
-    handleUpdate = () => {
+    handleSubmit = () => {
+        this.props.onFormSubmit({
+            id: this.props.id,
+            title: this.state.title,
+            project: this.state.project
+        })
+
+        // this.props.title ? this.props.hideTimerForm() : this.props.hideCreateForm()
+    }
+
+    handleCancel = () => {
         this.props.title ? this.props.hideTimerForm() : this.props.hideCreateForm()
     }
 
@@ -34,10 +44,10 @@ class TimerForm extends Component {
                             <input type="text" defaultValue={this.state.project} onChange={this.handleProjectChange}/>
                         </div>
                         <div className="ui two bottom attached buttons">
-                            <button className='ui basic blue button' onClick={() => { this.handleUpdate() }}> 
+                            <button className='ui basic blue button' onClick={this.handleSubmit}> 
                                 {submitText}
                             </button>
-                            <button className='ui basic red button'>
+                            <button className='ui basic red button' onClick={this.handleCancel}>
                                 Cancel
                             </button>
                         </div>

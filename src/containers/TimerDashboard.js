@@ -22,12 +22,24 @@ class TimerDashboard extends Component {
             }
         ]
     }
+
+    handleCreateFormSubmit = (timer) => {
+        this.createTimer(timer);
+    }
+
+    createTimer = (timer) => {
+        const t = helpers.newTimer(timer);
+        this.setState({
+            timers: this.state.timers.concat(t)
+        })
+    }
+
     render() {
         return (
             <div className="ui three column centered grid">
                 <div className="column">
                     <EditableTimerList timers={this.state.timers} />
-                    <ToggleableTimerForm />
+                    <ToggleableTimerForm onFormSubmit={this.handleCreateFormSubmit} />
                 </div>
             </div>
         )
