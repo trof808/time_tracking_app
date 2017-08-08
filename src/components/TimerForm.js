@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class TimerForm extends Component {
+
+    handleUpdate = () => {
+        this.props.title ? this.props.hideTimerForm() : this.props.hideCreateForm()
+    }
+
     render() {
         const submitText = this.props.title ? 'Update' : 'Create';
         return (
@@ -16,7 +21,7 @@ class TimerForm extends Component {
                             <input type="text" defaultValue={this.props.project}/>
                         </div>
                         <div className="ui two bottom attached buttons">
-                            <button className='ui basic blue button'> 
+                            <button className='ui basic blue button' onClick={() => { this.handleUpdate() }}> 
                                 {submitText}
                             </button>
                             <button className='ui basic red button'>
