@@ -2,8 +2,21 @@ import React, { Component } from 'react';
 
 class TimerForm extends Component {
 
+    state = {
+        title: this.props.title || '',
+        project: this.props.project || ''
+    }
+    
     handleUpdate = () => {
         this.props.title ? this.props.hideTimerForm() : this.props.hideCreateForm()
+    }
+
+    handleTitleChange = (e) => {
+        this.setState({ title: e.target.value })
+    }
+
+    handleProjectChange = (e) => {
+        this.setState({ project: e.target.value })
     }
 
     render() {
@@ -14,11 +27,11 @@ class TimerForm extends Component {
                     <div className="ui form">
                         <div className="field">
                             <label>Title</label>
-                            <input type="text" defaultValue={this.props.title}/>
+                            <input type="text" defaultValue={this.state.title} onChange={this.handleTitleChange}/>
                         </div>
                         <div className="field">
                             <label>Project</label>
-                            <input type="text" defaultValue={this.props.project}/>
+                            <input type="text" defaultValue={this.state.project} onChange={this.handleProjectChange}/>
                         </div>
                         <div className="ui two bottom attached buttons">
                             <button className='ui basic blue button' onClick={() => { this.handleUpdate() }}> 
